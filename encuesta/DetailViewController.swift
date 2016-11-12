@@ -10,7 +10,7 @@ import UIKit
 
 class DetailViewController: UITableViewController {
 
-    var meseros = [AnyObject]()
+    var myJoshua:Joshua = Joshua()
     
     var detailItem: AnyObject? {
         didSet {
@@ -22,10 +22,10 @@ class DetailViewController: UITableViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = self.detailItem as? NSDictionary {
+            myJoshua.setSelectedLocation(detail, endFunction: refreshLocationTable)
             if let name = detail["name"] as? String {
                 self.navigationItem.title = "Meseros de " + name
             }
-            loadPunto(detail)
         }
     }
 
@@ -38,6 +38,7 @@ class DetailViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        myJoshua.didReceiveMemoryWarning()
     }
 
     // MARK: - Table View
@@ -46,13 +47,15 @@ class DetailViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meseros.count
+        return myJoshua.waiterCount()
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
-        let object = meseros[indexPath.row] as! String
-        cell.textLabel!.text = object
+        if let object = myJoshua.waiterAt(indexPath.row)! as NSDictionary? {
+            let name = object["name"] as? String
+            cell.textLabel!.text = name
+        }
         return cell
     }
     
@@ -61,13 +64,6 @@ class DetailViewController: UITableViewController {
         return false
     }
     
-    // MARK: - Custom functions
-    func loadPunto(punto: NSDictionary) -> Void {
-        meseros.removeAll()
-        meseros.append("Hola")
-        meseros.append("Mundo")
-        refreshLocationTable();
-    }
     func refreshLocationTable() {
         dispatch_async(dispatch_get_main_queue(), {
             self.tableView.reloadData()
