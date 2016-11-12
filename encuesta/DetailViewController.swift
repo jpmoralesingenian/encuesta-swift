@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UITableViewController {
 
     var meseros = [AnyObject]()
     
@@ -25,6 +25,7 @@ class DetailViewController: UIViewController {
             if let name = detail["name"] as? String {
                 self.navigationItem.title = "Meseros de " + name
             }
+            loadPunto(detail)
         }
     }
 
@@ -40,7 +41,6 @@ class DetailViewController: UIViewController {
     }
 
     // MARK: - Table View
-    /*
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -48,7 +48,31 @@ class DetailViewController: UIViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return meseros.count
     }
-    */
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        
+        let object = meseros[indexPath.row] as! String
+        cell.textLabel!.text = object
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return false
+    }
+    
+    // MARK: - Custom functions
+    func loadPunto(punto: NSDictionary) -> Void {
+        meseros.append("Hola")
+        meseros.append("Mundo")
+        refreshLocationTable();
+    }
+    func refreshLocationTable() {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tableView.reloadData()
+            return
+        })
+    }
 
 }
 
