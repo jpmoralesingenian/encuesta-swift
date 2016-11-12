@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D80921501DD7B82900AFA154 /* Joshua.swift in Sources */ = {isa = PBXBuildFile; fileRef = D809214F1DD7B82900AFA154 /* Joshua.swift */; };
 		D875D7831DCF568D00B414CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D875D7821DCF568D00B414CB /* AppDelegate.swift */; };
 		D875D7851DCF568D00B414CB /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D875D7841DCF568D00B414CB /* MasterViewController.swift */; };
 		D875D7871DCF568D00B414CB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D875D7861DCF568D00B414CB /* DetailViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D809214F1DD7B82900AFA154 /* Joshua.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Joshua.swift; sourceTree = "<group>"; };
 		D875D77F1DCF568D00B414CB /* encuesta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = encuesta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D875D7821DCF568D00B414CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D875D7841DCF568D00B414CB /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				D875D78B1DCF568D00B414CB /* Assets.xcassets */,
 				D875D78D1DCF568D00B414CB /* LaunchScreen.storyboard */,
 				D875D7901DCF568D00B414CB /* Info.plist */,
+				D809214F1DD7B82900AFA154 /* Joshua.swift */,
 			);
 			path = encuesta;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D875D7871DCF568D00B414CB /* DetailViewController.swift in Sources */,
+				D80921501DD7B82900AFA154 /* Joshua.swift in Sources */,
 				D875D7851DCF568D00B414CB /* MasterViewController.swift in Sources */,
 				D875D7831DCF568D00B414CB /* AppDelegate.swift in Sources */,
 			);
@@ -397,6 +401,7 @@
 				D875D7A01DCF568D00B414CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D875D7A11DCF568D00B414CB /* Build configuration list for PBXNativeTarget "encuestaTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +410,7 @@
 				D875D7A31DCF568D00B414CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

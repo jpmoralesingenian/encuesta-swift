@@ -63,6 +63,7 @@ class DetailViewController: UITableViewController {
     
     // MARK: - Custom functions
     func loadPunto(punto: NSDictionary) -> Void {
+        meseros.removeAll()
         meseros.append("Hola")
         meseros.append("Mundo")
         refreshLocationTable();
