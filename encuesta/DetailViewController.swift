@@ -50,11 +50,11 @@ class DetailViewController: UITableViewController {
         return myJoshua.waiterCount()
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("WaiterTableViewCell", forIndexPath: indexPath) as! WaiterTableViewCell
         
         if let object = myJoshua.waiterAt(indexPath.row)! as NSDictionary? {
             let name = object["name"] as? String
-            cell.textLabel!.text = name
+            cell.titleLabel!.text = name
         }
         return cell
     }
