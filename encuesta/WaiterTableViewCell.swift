@@ -11,8 +11,8 @@ import UIKit
 class WaiterTableViewCell: UITableViewCell {
     
     //MARK: Properties
+    @IBOutlet weak var pictureImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var picture: UIImageView!
     
     //MARK: Functions
     override func awakeFromNib() {

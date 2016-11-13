@@ -55,6 +55,8 @@ class DetailViewController: UITableViewController {
         if let object = myJoshua.waiterAt(indexPath.row)! as NSDictionary? {
             let name = object["name"] as? String
             cell.titleLabel!.text = name
+            let id = object["_id"] as! Int
+            myJoshua.loadImageForMesero(String(id), view: cell.pictureImageView )
         }
         return cell
     }

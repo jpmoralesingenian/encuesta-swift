@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 /**
  This class handles all info from the API
  */
@@ -18,7 +19,7 @@ class Joshua {
     var errorFunction: String->Void
     var waiters = [NSDictionary]()
     init() {
-        self.baseUrl = "http://api.joshuacafebar.com/api/"
+        self.baseUrl = "http://api.joshuacafebar.com/"
         self.endFunction = { Void-> Void in }
         self.errorFunction = {(x:String) -> Void in
             print(x)
@@ -34,7 +35,7 @@ class Joshua {
             // We already have locations loaded.
             return
         }
-        let url = NSURL(string: self.baseUrl  + "locations")
+        let url = NSURL(string: self.baseUrl  + "api/locations")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url!) {
             (data, response, error) -> Void in
@@ -87,7 +88,7 @@ class Joshua {
         self.waiters.removeAll()
         print(location["_id"])
         if let locationId = location["_id"] as? String {
-            let url = NSURL(string: self.baseUrl  + "meseros?locattion=" + locationId)
+            let url = NSURL(string: self.baseUrl  + "api/meseros?locattion=" + locationId)
             let session = NSURLSession.sharedSession()
             let task = session.dataTaskWithURL(url!) {
                 (data, response, error) -> Void in
@@ -132,6 +133,34 @@ class Joshua {
     }
     func waiterCount()-> Int {
         return waiters.count
+    }
+    func loadImageForMesero(id: String, view: UIImageView){
+        let urlString = self.baseUrl + "meseros/" + id + ".jpg"
+        // Create Url from string
+        let url = NSURL(string: urlString)!
+        
+        // Download task:
+        // - sharedSession = global NSURLCache, NSHTTPCookieStorage and NSURLCredentialStorage objects.
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (responseData, responseUrl, error) -> Void in
+            // if responseData is not null...
+            if let data = responseData{
+                
+                // execute in UI thread
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    var myImage = UIImage(data: data)
+                    let itemSize = CGSizeMake(45, 45);
+                    UIGraphicsBeginImageContextWithOptions(itemSize, false, UIScreen.mainScreen().scale);
+                    let imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
+                    myImage!.drawInRect(imageRect)
+                    myImage = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                    view.image = myImage
+                })
+            }
+        }
+        
+        // Run task
+        task.resume()
     }
     /**
     Free as much memory as you can
