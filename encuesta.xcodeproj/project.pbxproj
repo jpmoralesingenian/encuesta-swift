@@ -16,6 +16,7 @@
 		D875D78C1DCF568D00B414CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D875D78B1DCF568D00B414CB /* Assets.xcassets */; };
 		D875D78F1DCF568D00B414CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D875D78D1DCF568D00B414CB /* LaunchScreen.storyboard */; };
 		D875D79A1DCF568D00B414CB /* encuestaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D875D7991DCF568D00B414CB /* encuestaTests.swift */; };
+		D8C402181DD8B2AB00089AED /* WaiterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C402171DD8B2AB00089AED /* WaiterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		D875D7951DCF568D00B414CB /* encuestaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = encuestaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D875D7991DCF568D00B414CB /* encuestaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = encuestaTests.swift; sourceTree = "<group>"; };
 		D875D79B1DCF568D00B414CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8C402171DD8B2AB00089AED /* WaiterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaiterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				D875D78D1DCF568D00B414CB /* LaunchScreen.storyboard */,
 				D875D7901DCF568D00B414CB /* Info.plist */,
 				D809214F1DD7B82900AFA154 /* Joshua.swift */,
+				D8C402171DD8B2AB00089AED /* WaiterViewController.swift */,
 			);
 			path = encuesta;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				D80921501DD7B82900AFA154 /* Joshua.swift in Sources */,
 				D80921521DD8033B00AFA154 /* WaiterTableViewCell.swift in Sources */,
 				D875D7851DCF568D00B414CB /* MasterViewController.swift in Sources */,
+				D8C402181DD8B2AB00089AED /* WaiterViewController.swift in Sources */,
 				D875D7831DCF568D00B414CB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
